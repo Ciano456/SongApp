@@ -11,6 +11,9 @@ package com.mycompany.songapp;
 public class SongApp {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        //Displays the GUI
+        new HomeScreenGUI().setVisible(true);
+        
     }
 }
