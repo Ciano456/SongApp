@@ -11,7 +11,10 @@ import javax.swing.DefaultComboBoxModel;
  * @author cianoconnor
  */
 public class HomeScreenGUI extends javax.swing.JFrame {
-    
+    /*
+    * This class provides functionality to interact with the application such as liking songs, adding songs to playlists,
+    * creating playlists, moving songs within playlists, searching for songs, and displaying playlists.
+    */
     // Instance of classes
     private LikedPlaylist likedPlaylist;
     private PlaylistGenre playlistGenre; 
@@ -501,7 +504,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
                 if (newPlaylist != null) {
                     newPlaylist.setIsRepeat(isRepeat);
                     playlistGenre.registerNewPlaylist(genre, newPlaylist);
-                    JOptionPane.showMessageDialog(this, "Playlist for " + genre + " created successfully.");
+                    JOptionPane.showMessageDialog(this, "Congrats, you created a playlist for " + genre);
                     playlistExists = true;
                 }
 //           User chose not to create the playlist; exit early.
@@ -515,7 +518,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
             Playlist selectedPlaylist = playlistGenre.getPlaylist(genre);
             if (selectedPlaylist != null) {
                 selectedPlaylist.addSong(lastLikedSong);
-                JOptionPane.showMessageDialog(this, "Song moved to " + genre + " playlist successfully.");
+                JOptionPane.showMessageDialog(this, "Song has been added to " + genre);
             }
         }
         
