@@ -14,6 +14,6 @@ public class SongApp {
         
         //Displays the GUI
         new HomeScreenGUI().setVisible(true);
-        
+       
     }
 }

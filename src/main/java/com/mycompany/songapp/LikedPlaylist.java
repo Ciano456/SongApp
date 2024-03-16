@@ -4,25 +4,69 @@
  */
 package com.mycompany.songapp;
 import java.util.*; 
+import javax.swing.JOptionPane;
 /**
  *
  * @author cianoconnor
  */
-public class LikedPlaylist {
-    private Stack<Song> likedSongsStack;
-
-    public LikedPlaylist() {
-        likedSongsStack = new Stack<>();
-    }
-
-    // likes a song
-    public void likeSong(Song song) {
-        likedSongsStack.push(song);
-        System.out.println("Liked song: " + song.getSong());
-    }
+public class LikedPlaylist implements Song {
     
-    public Stack<Song> getLikedSongStack() {
-        return likedSongsStack; 
+    // Variables
+    private Stack<NewSong> likedSongList = new Stack<>();
+    private NewSong lastLikedSong;
+    private boolean moveSong = false;
+    private javax.swing.JTextArea likedDisplay;
+
+
+    public NewSong getLastLikedSong() {
+        return lastLikedSong;
+    }
+
+    public void setLastLikedSong(NewSong lastLikedSong) {
+        this.lastLikedSong = lastLikedSong;
+    }
+
+    // Default Constructor
+    public LikedPlaylist(javax.swing.JTextArea likedDisplay) {
+         this.likedDisplay = likedDisplay;
+    }
+
+    // Getters & Setters
+    public Stack<NewSong> getLikedList() {
+        return likedSongList;
+    }
+
+    public void setLikedList(Stack<NewSong> likedSongList) {
+        this.likedSongList = likedSongList;
+    }
+
+    // Methods from Interface
+    @Override
+    public void moveSong() { 
+        if(moveSong){
+            JOptionPane.showMessageDialog(null, "You already added the last liked song to the genre Playlist");
+        } else if(likedSongList.isEmpty()){
+            JOptionPane.showMessageDialog(null, "You have not liked any songs");
+        } else{
+            lastLikedSong = likedSongList.pop();
+            moveSong = true;
+        }   
+    }
+
+    @Override
+    public void addSong(NewSong song) {
+        likedSongList.push(song);
+        moveSong = false;
+    }
+
+    @Override
+    public void displayLikedSongs() {
+        StringBuilder sb = new StringBuilder();
+        for(NewSong song : likedSongList){
+               sb.append(song.getSong()).append(" by ").append(song.getArtist()).append(" [").append(song.getGenre()).append("]\n");
+        }
+        likedDisplay.setText(sb.toString());
     }
 }
+
 
