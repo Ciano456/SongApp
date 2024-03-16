@@ -17,7 +17,7 @@ public class LikedPlaylist implements Song {
     private boolean moveSong = false;
     private javax.swing.JTextArea likedDisplay;
 
-
+    //Retrieves the last liked song.
     public NewSong getLastLikedSong() {
         return lastLikedSong;
     }
@@ -25,8 +25,8 @@ public class LikedPlaylist implements Song {
     public void setLastLikedSong(NewSong lastLikedSong) {
         this.lastLikedSong = lastLikedSong;
     }
+    // Constructs a LikedPlaylist object with a reference to the display area for liked songs.
 
-    // Default Constructor
     public LikedPlaylist(javax.swing.JTextArea likedDisplay) {
          this.likedDisplay = likedDisplay;
     }

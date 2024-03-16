@@ -12,16 +12,18 @@ import javax.swing.JTextArea;
  * @author cianoconnor
  */
 public class PlaylistOne implements Playlist{
-private List<NewSong> songs; 
+    
+    //variables
+    private List<NewSong> songs; 
     private boolean isRepeat;
 
-    // Default Constructor
+    // Constructs a PlaylistOne object with the given repeat mode.
     public PlaylistOne(Boolean isRepeat) {
         this.songs = new ArrayList<>();
         this.isRepeat = false;
     }
 
-    // Overloaded Constructor
+    // Constructs a PlaylistOne object with repeat mode set to false. This is default constructor
     public PlaylistOne() {
         this(false); // Calls the other constructor with default value
     }
@@ -77,7 +79,7 @@ private List<NewSong> songs;
             return;
         }
 
-        StringBuilder message = new StringBuilder("Rock Playlist: \n");
+        StringBuilder message = new StringBuilder("Country Playlist: \n");
 //      if the playlist is repeated display that it is
         if (isRepeat) {
             message.append("This playlist is on repeat. \n");
@@ -116,14 +118,9 @@ private List<NewSong> songs;
                 return true;
             }
         }
-        return false;
+        return false; // Song not found or already at the top
     }
 
-    
-
-
-
-   
 
     @Override
     public void delete(String songName) {

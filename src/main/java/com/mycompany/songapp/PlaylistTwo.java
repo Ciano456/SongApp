@@ -11,16 +11,18 @@ import javax.swing.JTextArea;
  * @author cianoconnor
  */
 public class PlaylistTwo implements Playlist{
+    
+    //variables
     private List<NewSong> songs; 
     private boolean isRepeat;
 
-    // Default Constructor
+    // Constructs a PlaylistTwo object with the given repeat mode.
     public PlaylistTwo(Boolean isRepeat) {
         this.songs = new ArrayList<>();
         this.isRepeat = false;
     }
 
-    // Overloaded Constructor
+    // Constructs a PlaylistOne object with repeat mode set to false. This is default constructor
     public PlaylistTwo() {
         this(false); // Calls the other constructor with default value
     }
@@ -70,13 +72,13 @@ public class PlaylistTwo implements Playlist{
 
    @Override
     public void toDisplay() {
-
+        // If the playlist is empty, inform the user
         if (songs.isEmpty()) {
             JOptionPane.showMessageDialog(null, "The playlist has no songs");
             return;
         }
 
-        StringBuilder message = new StringBuilder("Rock Playlist: \n");
+        StringBuilder message = new StringBuilder("Classical Playlist: \n");
 
         if (isRepeat) {
             message.append("This playlist is on repeat. \n");

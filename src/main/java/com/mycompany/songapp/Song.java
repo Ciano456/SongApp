@@ -10,8 +10,12 @@ import java.util.*;
  */
 public interface Song {
     
+    //Moves the last liked song to another playlist.
     void moveSong();
-    void addSong(NewSong song);
-    void displayLikedSongs();
     
+    //Adds a new song to the liked playlist.
+    void addSong(NewSong song);
+    
+    //Displays the list of liked songs.
+    void displayLikedSongs();
 }
